@@ -38,7 +38,18 @@ The notes in this repository are based on personal lab systems and virtual machi
 linux-hardening-notes/
 ├── README.md
 ├── case-studies/
-│   └── tongfang-gx4-arch-linux-workstation.md
+│   ├── tongfang-gx4-arch-linux-workstation.md
+│   ├── arch-hardening-2026-05-30.md
+│   ├── arch-hardening-2026-06-07.md
+│   ├── arch-hardening-2026-06-08.md
+│   ├── insightful-agent-forensic-review-2026-06-08.md
+│   ├── amd-s2idle-resume-freeze-2026-06-17.md
+│   ├── arch-hardening-2026-06-18.md
+│   └── wireguard-netns-qbittorrent-killswitch-2026-06-18.md
+├── bug-reports/
+│   ├── strix-s2idle-bugreport.md
+│   └── strix-s2idle-forumpost.md
+├── aide/
 ├── notes/
 │   ├── post-install-checklist.md
 │   ├── user-and-permission-basics.md
