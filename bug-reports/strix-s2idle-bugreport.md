@@ -1,5 +1,7 @@
 # Resume from s2idle hard-freezes — AiStone X4SP4NAL (Ryzen AI 300, "STX\KRK") — broken LPS0 `\_SB.PEP._DSM`
 
+**Filed:** Kernel Bugzilla — https://bugzilla.kernel.org/show_bug.cgi?id=221664 (2026-06-19). Not cross-posted to the CachyOS forum — an existing thread already reports the same s2idle/LPS0 issue on this hardware, so a duplicate was avoided.
+
 ## System
 - **Machine:** AiStone X4SP4NAL (board AiStone X4SP4NAL), `product_family = STX\KRK` (AMD Ryzen AI 300 / Strix–Krackan Point)
 - **BIOS:** American Megatrends `N.1.20PCS09`, 2025-09-29

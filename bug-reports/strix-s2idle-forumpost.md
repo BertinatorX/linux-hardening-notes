@@ -1,3 +1,5 @@
+> **STATUS (2026-06-19): NOT posted.** An existing CachyOS forum thread already reports the same s2idle/LPS0 freeze on this hardware, so this draft is kept for reference rather than filed as a duplicate. The canonical report is the kernel Bugzilla one: https://bugzilla.kernel.org/show_bug.cgi?id=221664
+
 TITLE:
 Resume from s2idle hard-freezes — AiStone X4SP4NAL (Ryzen AI 300 "Krackan Point") — broken LPS0 \_SB.PEP._DSM
 
