@@ -44,6 +44,7 @@ linux-hardening-notes/
 │   ├── arch-hardening-2026-06-08.md
 │   ├── insightful-agent-forensic-review-2026-06-08.md
 │   ├── amd-s2idle-resume-freeze-2026-06-17.md
+│   ├── amd-s2idle-kernel-bracket-and-upstream-collaboration-2026-07.md
 │   ├── arch-hardening-2026-06-18.md
 │   └── wireguard-netns-qbittorrent-killswitch-2026-06-18.md
 ├── bug-reports/
@@ -61,6 +62,8 @@ linux-hardening-notes/
 │   ├── wifi-throughput-tuning.md
 │   ├── kde-conky-desktop-telemetry.md
 │   └── log-review-basics.md
+├── scripts/
+│   └── system-health-check.sh
 └── references/
     └── command-cheatsheet.md
 ```
@@ -142,3 +145,7 @@ I am currently studying for CompTIA Tech+ and plan to complete the exam by Octob
 ## Safety note
 
 This repository does not include passwords, private keys, customer data, internal company data, or sensitive system screenshots.
+
+## Development note
+
+Portions of this repository — including debugging sessions, documentation drafting, and script review — were worked through in collaboration with Claude (Anthropic's AI assistant, via Claude Code), used as a pair-debugging and writing aid. All commands were run, all decisions made, and all results verified by me on my own hardware.
