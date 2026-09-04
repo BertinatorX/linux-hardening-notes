@@ -1,23 +1,20 @@
 # Arch Linux Security Hardening Session
 **Date:** 2026-05-30  
-**System:** AiStone X4SP4NAL — AMD Ryzen AI 9 HX 370 | Arch Linux (Kernel 7.0.10)  
+**System:** AiStone X4SP4NAL, AMD Ryzen AI 9 HX 370 | Arch Linux (Kernel 7.0.10)  
 **Tools Used:** lynis, rkhunter, arch-audit, ufw, auditd
 
 ---
 
 ## Lynis Audit Score
 **Hardening Index: 69/100**  
-No warnings. 40 suggestions generated.
+No warnings, 40 suggestions generated.
 
 ---
 
 ## Actions Taken
 
 ### Firewall
-- Installed and enabled UFW
-- Set default deny incoming, allow outgoing
-- Opened port 2222/tcp for SSH
-- Port 22 was never explicitly open in UFW (blocked by default)
+I installed and enabled UFW and set default deny incoming, allow outgoing. Opened port 2222/tcp for SSH. Port 22 was never explicitly open in UFW, so it's blocked by default.
 
 ### SSH Hardening (/etc/ssh/sshd_config)
 - AllowTcpForwarding no
@@ -54,13 +51,13 @@ net.ipv4.tcp_syncookies = 1
 ```
 
 ### Packages Installed
-- `ufw` — firewall frontend
-- `lynis` — security audit tool
-- `rkhunter` — rootkit scanner
-- `audit` + `auditd` — kernel audit daemon
-- `arch-audit` — CVE vulnerability checker
-- `zathura` + `zathura-pdf-mupdf` — PDF viewer (replaced okular)
-- `tenacity` — audio editor (replaced audacity)
+- `ufw`, firewall frontend
+- `lynis`, security audit tool
+- `rkhunter`, rootkit scanner
+- `audit` + `auditd`, kernel audit daemon
+- `arch-audit`, CVE vulnerability checker
+- `zathura` + `zathura-pdf-mupdf`, PDF viewer (replaced okular)
+- `tenacity`, audio editor (replaced audacity)
 
 ### Packages Removed (Vulnerability Reduction)
 | Package | CVE Risk | Reason Removed |
@@ -69,15 +66,15 @@ net.ipv4.tcp_syncookies = 1
 | `djvulibre` | High | Removed with okular, replaced by zathura |
 | `jre8-openjdk` | High | Unused Java runtime |
 | `jre8-openjdk-headless` | High | Unused Java runtime |
-| `java-runtime-common` | — | Orphaned after Java removal |
-| `moodle-sync` | — | Unused LMS tool (pulled Java) |
-| `calibre` | — | Unused ebook manager |
+| `java-runtime-common` | n/a | Orphaned after Java removal |
+| `moodle-sync` | n/a | Unused LMS tool (pulled Java) |
+| `calibre` | n/a | Unused ebook manager |
 | `podofo` | Medium | Removed with calibre |
 
 ---
 
 ## Remaining CVEs (Awaiting Arch Security Patches)
-These are core/system packages — no action possible except waiting for upstream patches.
+These are core/system packages, so there's nothing I can do about them except wait for upstream patches.
 
 | Package | Risk | Notes |
 |---|---|---|

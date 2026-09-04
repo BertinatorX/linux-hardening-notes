@@ -2,7 +2,7 @@
 
 ## Goal
 
-Document basic SSH hardening steps for a personal Linux lab. These notes are for learning and should be reviewed before use in a production environment.
+Basic SSH hardening steps for my own Linux lab. These are learning notes, so I'd review them before using any of this on a production system.
 
 ## Environment
 
@@ -89,4 +89,4 @@ Expected result: The user can log in using the intended method.
 
 ## What I learned
 
-SSH hardening requires careful change control. A support technician should back up configuration files, validate syntax, test access before closing a session, and document the exact changes made.
+SSH hardening, for me, is really about careful change control. I don't want to lock myself out, so I back up the config file first, validate the syntax, and test login from a second terminal before closing the first one, then I write down the exact changes I made. Overall it's simple stuff, I just don't trust a restart until I've proven I can still get in.

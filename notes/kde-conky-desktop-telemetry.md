@@ -2,7 +2,7 @@
 
 ## Goal
 
-Document desktop configuration work used to display useful system telemetry on a KDE Plasma workstation.
+I wanted useful system telemetry showing on my KDE Plasma workstation, this is the desktop configuration work it took.
 
 ## Tools
 
@@ -14,7 +14,7 @@ Document desktop configuration work used to display useful system telemetry on a
 
 ## Why this matters
 
-Desktop customization can be support-relevant when it involves repeatable configuration, startup troubleshooting, monitoring, and documentation.
+I'm not pretending desktop customization is serious support work, but it can matter when it involves repeatable configuration, startup troubleshooting, monitoring, and documentation.
 
 ## Conky configuration example
 
@@ -36,16 +36,16 @@ conky.config = {
 
 ## Startup issue
 
-Conky could start before the compositor was fully ready, causing transparency or display issues.
+Conky could start before the compositor was fully ready, which caused transparency or display issues.
 
 ## Resolution
 
-Added a startup delay so the compositor initializes before Conky loads.
+Simple fix, I added a startup delay so the compositor initializes before Conky loads.
 
 ## Verification
 
-The overlay displayed system uptime, CPU load, memory usage, wireless signal, gateway status, and storage usage after login.
+After login the overlay showed system uptime, CPU load, memory usage, wireless signal, gateway status, and storage usage.
 
 ## What I learned
 
-Even visual configuration requires troubleshooting discipline. Startup timing, compositor behavior, theme engines, and display settings can interact in ways that require testing and documentation.
+Overall it works fine, but even visual configuration needs troubleshooting discipline, which surprised me. Startup timing, compositor behavior, theme engines, and display settings can interact in ways that need testing and documentation, and without that I'd likely still be guessing.

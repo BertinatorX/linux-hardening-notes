@@ -2,7 +2,7 @@
 
 ## Summary
 
-This case study documents the configuration and troubleshooting work performed on my TongFang GX4 Linux workstation. The goal was to build a stable daily-driver Arch Linux system for information systems coursework, virtualization labs, Linux administration practice, and cybersecurity fundamentals.
+I did this configuration and troubleshooting work on my TongFang GX4 Linux workstation. The goal was a stable daily-driver Arch Linux system for information systems coursework, virtualization labs, Linux administration practice, and cybersecurity fundamentals, and most of what follows is the troubleshooting, not the install.
 
 ## Hardware baseline
 
@@ -26,105 +26,68 @@ This case study documents the configuration and troubleshooting work performed o
 
 ### Desktop configuration and system telemetry
 
-Configured KDE Plasma, KWin, Kvantum, and Conky to create a high-contrast desktop environment with visible system telemetry.
+I wanted a high-contrast desktop with visible system telemetry, so I configured KDE Plasma, KWin, Kvantum, and Conky to get there. The main pieces:
 
-Key tasks:
-
-- Replaced a GNOME-focused theme that did not fit the KDE/X11 environment.
+- Replaced a GNOME-focused theme that didn't fit the KDE/X11 environment.
 - Configured Kvantum for SVG-based theme rendering.
 - Added a Conky status overlay for uptime, CPU, RAM, wireless signal, gateway, and storage usage.
-- Added startup delay logic so Conky loads after the compositor, avoiding transparency rendering problems.
+- Added startup delay logic so Conky loads after the compositor, which avoids transparency rendering problems.
 
-Support relevance:
-
-- Shows configuration troubleshooting.
-- Shows attention to usability and monitoring.
-- Shows ability to document changes that affect startup behavior.
+Support relevance: a themed desktop looks like the least serious item here, but it still took configuration troubleshooting, it was about usability and monitoring, and the startup delay is a change to startup behavior, which needs documenting.
 
 ### Encrypted storage expansion
 
-Reclaimed unused NVMe space and expanded the encrypted storage layout.
+There was unused space sitting on the NVMe, so I reclaimed it and expanded the encrypted storage layout. The order I did it in:
 
-High-level sequence:
-
-1. Booted from a live ISO so filesystems would remain unmounted.
+1. Booted from a live ISO so the filesystems would stay unmounted.
 2. Unlocked the LUKS encryption layer.
 3. Expanded the physical partition boundary with `parted resizepart`.
 4. Resized the encrypted container with `cryptsetup resize`.
 5. Extended the LVM physical volume and logical volume.
 6. Ran `e2fsck -f` when `resize2fs` required a filesystem check before expansion.
-7. Completed filesystem expansion and verified available storage.
+7. Completed the filesystem expansion and verified the available storage.
 
-Support relevance:
-
-- Shows careful maintenance around encrypted disks.
-- Shows awareness of safe change procedure before modifying partitions.
-- Shows ability to troubleshoot a failed resize step instead of forcing unsafe changes.
+Support relevance: careful maintenance around encrypted disks, and knowing the safe change procedure before touching partitions. When the resize step failed I troubleshot it instead of forcing unsafe changes, which I think is the real skill.
 
 ### Wireless throughput troubleshooting
 
-Troubleshot wireless performance for an Alfa Wi-Fi 6E adapter using the MediaTek MT7921AU chipset.
+I troubleshot wireless performance for the Alfa Wi-Fi 6E adapter using the MediaTek MT7921AU chipset. Initial throughput was approximately 230 Mbps. I suspected wireless power-save behavior and conservative defaults were part of it. I changed TCP congestion control from CUBIC to BBR, and observed throughput improved to approximately 900 Mbps under the tested conditions. USB port selection affected performance, some ports produced much lower throughput, and band selection mattered because the network exposed both 2.4GHz and 5GHz options. Overall a big improvement, but it wasn't one fix, it was several variables stacked up.
 
-Findings:
-
-- Initial throughput was approximately 230 Mbps.
-- Wireless power-save behavior and conservative defaults were suspected contributors.
-- TCP congestion control was changed from CUBIC to BBR.
-- Observed throughput improved to approximately 900 Mbps under the tested conditions.
-- USB port selection affected performance, with some ports producing much lower throughput.
-- Band selection mattered because the network exposed both 2.4GHz and 5GHz options.
-
-Support relevance:
-
-- Shows network troubleshooting process.
-- Shows testing of hardware, driver, protocol, and physical port variables.
-- Shows ability to document before-and-after results.
+Support relevance: a network troubleshooting process, testing hardware, driver, protocol, and physical port variables, with the before-and-after results written down instead of trusted to memory.
 
 ### Virtualization migration
 
-Moved virtualization work from VirtualBox to QEMU/KVM for better native Linux integration.
+I moved my virtualization work from VirtualBox to QEMU/KVM, mainly because it's native to Linux and fits in better. What that involved:
 
-Key tasks:
-
-- Installed and configured QEMU/KVM tooling.
+- Installed and configured the QEMU/KVM tooling.
 - Used virt-manager for VM administration.
-- Added OVMF/UEFI support for modern guest boot behavior.
-- Used VirtIO drivers for improved guest hardware recognition.
+- Added OVMF/UEFI support so guests boot like a modern machine.
+- Used VirtIO drivers so guests recognize their hardware better.
 - Resolved QEMU permission issues involving access to external storage.
 - Configured KDE Wallet integration for VS Code credential storage behavior.
 
-Support relevance:
-
-- Shows virtualization and lab isolation experience.
-- Shows troubleshooting of permissions and credential-store issues.
-- Shows ability to run Windows and security lab environments without compromising the primary Linux install.
+Support relevance: virtualization and lab isolation experience, plus the permission and credential-store troubleshooting, which was honestly the more realistic part. I can run Windows and security lab environments without compromising the primary Linux install.
 
 ### Software audit and cleanup
 
-Reviewed installed software and removed redundant or unused applications.
+I went through everything installed and removed what was redundant or unused. A few examples:
 
-Examples:
-
-- Removed unnecessary browsers after choosing a primary privacy-focused browser.
+- Removed the extra browsers once I settled on a primary privacy-focused browser.
 - Replaced VirtualBox with QEMU/KVM for the main virtualization workflow.
 - Documented package-management behavior related to externally managed Python environments and system package protection.
 
-Support relevance:
-
-- Shows system hygiene.
-- Shows awareness of package manager boundaries.
-- Shows ability to reduce unnecessary software and document why.
+Support relevance: system hygiene, which I'm not pretending is impressive. What matters is knowing the package manager's boundaries and cutting unnecessary software while writing down why.
 
 ## Lessons learned
 
-- Partition and encryption work should be planned, backed up, and performed from a safe live environment when needed.
+- Partition and encryption work should be planned, backed up, and done from a safe live environment when needed.
 - Performance troubleshooting requires testing multiple layers: hardware port, driver behavior, wireless band, power settings, and network stack configuration.
 - Virtualization is easier to maintain when storage permissions, guest drivers, and firmware requirements are documented.
-- Desktop customization can still demonstrate support-relevant skills when it includes repeatable configuration, monitoring, and troubleshooting.
+- Desktop customization can still show support-relevant skills when it includes repeatable configuration, monitoring, and troubleshooting. A Conky overlay isn't a security project, but the process is the same.
 
 ## Career relevance
 
-This project supports entry-level roles involving:
+This project lines up with entry-level roles like:
 
 - IT support
 - Desktop support
@@ -133,4 +96,4 @@ This project supports entry-level roles involving:
 - Junior system administration
 - Cybersecurity internship work
 
-The main value is not the visual theme itself. The value is the documented process: install, configure, test, troubleshoot, verify, and document.
+The visual theme isn't the value here, and I'm not pretending it is. The value is the documented process: install, configure, test, troubleshoot, verify, and document. That's what transfers.

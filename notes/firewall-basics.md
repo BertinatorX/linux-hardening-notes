@@ -6,7 +6,7 @@ Practice checking and documenting host firewall status on Linux systems.
 
 ## Why it matters
 
-Entry-level IT support and cybersecurity work often requires understanding whether a system is reachable on the network and whether access is intentionally allowed or accidentally exposed.
+Entry-level IT support and cybersecurity work often comes down to knowing whether a system is reachable on the network, and whether that access was allowed on purpose or exposed by accident.
 
 ## Check active listening ports
 
@@ -89,4 +89,4 @@ Result:
 
 ## What I learned
 
-Firewall review is not just turning a tool on. It requires understanding what services are running, what access is needed, and how to document the reason for each allowed connection.
+Firewall review is not just turning a tool on. You have to know what services are running, what access is needed, and how to document the reason for each allowed connection.
