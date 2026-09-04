@@ -2,11 +2,11 @@
 
 ## Goal
 
-Document the move from VirtualBox to QEMU/KVM for Linux-based virtualization labs.
+I moved my Linux virtualization labs from VirtualBox to QEMU/KVM and wanted the setup steps in one place.
 
 ## Purpose
 
-Virtual machines are used to test operating systems, networking configurations, and security tools in isolated environments without risking the primary workstation.
+I use the VMs to test operating systems, network configs, and security tools in isolated environments, so the main workstation isn't at risk.
 
 ## Tools
 
@@ -16,45 +16,45 @@ Virtual machines are used to test operating systems, networking configurations, 
 - OVMF/UEFI firmware
 - VirtIO drivers
 
-## Setup areas
+## Setup
 
-### Confirm virtualization support
+### Virtualization support
 
 ```bash
 lscpu | grep -i virtualization
 ```
 
-### Check libvirt service
+### libvirt service
 
 ```bash
 systemctl status libvirtd
 ```
 
-### Confirm user group membership
+### Group membership
 
 ```bash
 groups
 ```
 
-Expected groups may include `libvirt` or similar depending on distribution.
+Look for `libvirt` or similar, the name depends on the distro.
 
-## Windows guest requirements
+## Windows guests
 
-Windows guests may require:
+Windows guests may need:
 
 - OVMF/UEFI firmware
 - VirtIO storage drivers
 - VirtIO network drivers
 - Correct ISO attachment during installation
 
-## Permission troubleshooting
+## Permission errors
 
-One issue involved QEMU permission errors when accessing external storage. The resolution required reviewing QEMU/libvirt permissions and documenting which user or daemon account needed access.
+The annoying one was QEMU permission errors on external storage. The fix was reviewing QEMU/libvirt permissions and writing down which user or daemon account actually needed access.
 
-## Credential-store note
+## Credential store
 
-VS Code produced keyring-related errors until KDE Wallet integration was corrected and VS Code was launched with the expected password store behavior.
+VS Code kept throwing keyring errors until I fixed the KDE Wallet integration and launched it with the password store behavior it expected. More of a desktop problem than a VM problem, but it was the same mess.
 
 ## What I learned
 
-Virtualization troubleshooting often combines storage permissions, user groups, firmware settings, guest drivers, and desktop credential handling. Good documentation reduces repeated troubleshooting during future VM rebuilds.
+Virtualization trouble is rarely one thing. Mine mixed storage permissions, user groups, firmware settings, guest drivers, and desktop credential handling, which is five places to look. I wrote it down so I'm not redoing this on the next VM rebuild.

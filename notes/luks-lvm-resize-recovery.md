@@ -2,15 +2,15 @@
 
 ## Goal
 
-Document the high-level process used to reclaim unused NVMe storage and expand an encrypted Linux installation using LUKS and LVM.
+Reclaim the unused NVMe space and grow the encrypted Linux install into it using LUKS and LVM. Kept high-level on purpose, the sequence is the useful part.
 
 ## Safety warning
 
-Partition, encryption, and filesystem changes can cause data loss. These notes are for personal lab documentation. Always back up important data before attempting similar work.
+Partition, encryption, and filesystem changes can wipe out your data. These are personal lab notes, so back up anything important before trying similar work.
 
 ## Scenario
 
-Unused storage existed on the NVMe drive and needed to be added to the encrypted Linux environment.
+Unused storage was sitting on the NVMe drive and I wanted it inside the encrypted Linux environment.
 
 ## High-level workflow
 
@@ -25,7 +25,7 @@ Unused storage existed on the NVMe drive and needed to be added to the encrypted
 9. Resize the filesystem.
 10. Verify the final capacity.
 
-## Example command categories
+## Example commands
 
 Confirm layout:
 
@@ -83,10 +83,10 @@ lsblk
 df -h
 ```
 
-## Troubleshooting note
+## Troubleshooting
 
-During this process, filesystem resizing required a forced filesystem check with `e2fsck -f` before `resize2fs` would proceed. This was a useful reminder that filesystem tools may stop an operation until integrity checks are completed.
+The snag was `resize2fs` refusing to run until I did a forced check with `e2fsck -f` first. Annoying, but it's the tool doing its job, filesystem tools may stop an operation until integrity checks are done, so I'd plan for that step next time.
 
 ## What I learned
 
-Encrypted storage expansion is a multi-layer process. The partition, LUKS container, LVM physical volume, logical volume, and filesystem each need to be handled in the correct order.
+Growing encrypted storage means going through every layer in turn. I count five: partition, LUKS container, LVM physical volume, logical volume, filesystem, each handled in the correct order. Overall none of the commands are hard, the order is what matters.

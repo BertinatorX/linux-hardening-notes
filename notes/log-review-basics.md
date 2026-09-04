@@ -10,7 +10,7 @@ Practice basic Linux log review for support and troubleshooting scenarios.
 systemctl --failed
 ```
 
-Expected result: Failed services are identified for review.
+Expected result: any failed services get listed for review.
 
 ## Review current boot errors
 
@@ -18,7 +18,7 @@ Expected result: Failed services are identified for review.
 journalctl -p 3 -xb
 ```
 
-Expected result: Critical errors from the current boot are displayed.
+Expected result: critical errors from the current boot show up.
 
 ## Review a specific service
 
@@ -38,7 +38,7 @@ journalctl -u ssh
 journalctl -f
 ```
 
-Expected result: New log entries appear in real time.
+Expected result: new log entries show up in real time.
 
 ## Review authentication events
 
@@ -64,4 +64,4 @@ Escalation needed:
 
 ## What I learned
 
-Log review is useful only when notes are clear. A good support note should include the exact command, relevant timestamp, observed error, and what was done next.
+Log review is only useful when the notes are clear. A good support note should have the exact command, the relevant timestamp, the error I actually saw, and what I did next.

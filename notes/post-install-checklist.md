@@ -2,7 +2,7 @@
 
 ## Goal
 
-Create a repeatable checklist for preparing a fresh Linux installation for daily use, lab work, or entry-level administration practice.
+A repeatable checklist for preparing a fresh Linux installation for daily use, lab work, or entry-level administration practice, so I stop missing steps.
 
 ## Environment
 
@@ -20,7 +20,7 @@ uname -a
 cat /etc/os-release
 ```
 
-Expected result: The system reports the correct hostname, kernel, and distribution version.
+Expected result: Hostname, kernel, and distribution version match what I installed.
 
 ### Update packages
 
@@ -36,7 +36,7 @@ Fedora-based systems:
 sudo dnf upgrade --refresh
 ```
 
-Expected result: System packages are updated without unresolved dependency errors.
+Expected result: Packages update with no unresolved dependency errors.
 
 ### Confirm time and time sync
 
@@ -50,7 +50,7 @@ If time synchronization is disabled:
 sudo timedatectl set-ntp true
 ```
 
-Expected result: Time zone, local time, and NTP status are correct.
+Expected result: Time zone, local time, and NTP status are correct. This is the one I'm most likely to skip, so I make a point of checking it.
 
 ### Check users and sudo access
 
@@ -61,7 +61,7 @@ groups
 sudo -v
 ```
 
-Expected result: The primary user belongs to the expected groups and can use `sudo` when appropriate.
+Expected result: The main user is in the expected groups and can use `sudo` when needed.
 
 ### Check disk layout
 
@@ -70,7 +70,7 @@ lsblk
 df -h
 ```
 
-Expected result: Root, boot, home, swap, and any encrypted volumes appear as expected.
+Expected result: Root, boot, home, swap, and any encrypted volumes show up the way I laid them out.
 
 ### Check network connectivity
 
@@ -98,7 +98,7 @@ Common UFW command:
 sudo ufw status verbose
 ```
 
-Expected result: Firewall service is running and only expected services are allowed.
+Expected result: The firewall service is running and only expected services are allowed.
 
 ### Check running services
 
@@ -107,7 +107,7 @@ systemctl --failed
 systemctl list-units --type=service --state=running
 ```
 
-Expected result: No failed services or only known non-critical lab issues.
+Expected result: No failed services, or only known non-critical lab issues.
 
 ### Review boot logs
 
@@ -115,11 +115,11 @@ Expected result: No failed services or only known non-critical lab issues.
 journalctl -p 3 -xb
 ```
 
-Expected result: No critical boot errors requiring immediate action.
+Expected result: No critical boot errors that need action right away.
 
 ## Verification
 
-The system is considered ready when:
+I call the system ready when:
 
 - Packages are updated.
 - Time sync is working.
@@ -130,4 +130,4 @@ The system is considered ready when:
 
 ## What I learned
 
-A post-install checklist helps prevent missed configuration steps and supports repeatable troubleshooting. This approach is useful in help desk, desktop support, system administration, and security-focused lab work.
+The list keeps me from missing configuration steps, and when something breaks I walk it again instead of guessing. Overall it's a short list and maybe a bit obvious, but I think the same habit is useful in help desk, desktop support, system administration, and security-focused lab work, and I'd rather have it written down than trust myself to remember every step.

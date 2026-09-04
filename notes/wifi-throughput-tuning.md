@@ -2,7 +2,7 @@
 
 ## Goal
 
-Document a wireless troubleshooting process used to improve throughput on a Linux workstation.
+Write down the wireless troubleshooting process I used to improve throughput on my Linux workstation.
 
 ## Hardware
 
@@ -12,7 +12,7 @@ Document a wireless troubleshooting process used to improve throughput on a Linu
 
 ## Symptoms
 
-Initial observed throughput was much lower than expected for the adapter and network environment.
+Initial observed throughput was much lower than it should have been for this adapter and this network.
 
 ## Variables reviewed
 
@@ -64,15 +64,15 @@ lsusb
 
 ## Findings
 
-- Initial throughput was approximately 230 Mbps.
-- After tuning and testing, observed throughput reached approximately 900 Mbps under tested conditions.
-- USB port selection had a major impact, with some ports producing much lower throughput.
-- Band selection mattered because the environment exposed both 2.4GHz and 5GHz options.
+- Initial throughput was around 230 Mbps.
+- After tuning and testing, throughput got up to around 900 Mbps under the conditions I tested.
+- The USB port was the big one, some ports gave much lower throughput than others.
+- Band selection mattered too, since this environment has both 2.4GHz and 5GHz available.
 
 ## Verification
 
-The change was considered successful after repeated throughput tests showed improved performance and the connection remained stable.
+I called it good after repeated throughput tests kept showing the higher numbers and the connection stayed stable.
 
 ## What I learned
 
-Network troubleshooting should test multiple layers. A slow connection is not always an ISP or router issue. Adapter driver behavior, power-saving settings, TCP settings, wireless band, and physical USB port selection can all affect performance.
+Test more than one layer when troubleshooting a network. A slow connection isn't always the ISP or the router, the adapter driver, power-save settings, TCP settings, the wireless band, and the physical USB port can all affect performance.
